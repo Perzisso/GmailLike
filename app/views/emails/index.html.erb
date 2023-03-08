@@ -1,14 +1,29 @@
-<p style="color: green"><%= notice %></p>
 
-<h1>Emails</h1>
 
-<div id="emails">
-  <% @emails.each do |email| %>
-    <%= render email %>
-    <p>
-      <%= link_to "Show this email", email %>
-    </p>
-  <% end %>
+<div class='container'>
+<%= turbo_frame_tag "email" do  %>
+<%= button_to "Recevoir un email", { action: "create" }, data: { turbo_action: "advance" }, class: "btn btn-primary" %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Object</th>
+        <th scope="col"></th>
+        <th colspan='2' scope="col">Body</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @emails.each do |email| %>
+      <tr>
+        <div>
+        <th scope="row"><%= email.id %></th>
+        <td><b><%= email.object %></b></td>
+        <th scope="row">Body</th>
+        <td><%= email.body %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New email", new_email_path %>
+<% end %>

@@ -21,18 +21,10 @@ class EmailsController < ApplicationController
 
   # POST /emails or /emails.json
   def create
-    @email = Email.new(email_params)
+    @email = Email.create(object: Faker::Lorem.sentence, body: Faker::Lorem.paragraph)
 
-    respond_to do |format|
-      if @email.save
-        format.html { redirect_to email_url(@email), notice: "Email was successfully created." }
-        format.json { render :show, status: :created, location: @email }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
-      end
-    end
   end
+
 
   # PATCH/PUT /emails/1 or /emails/1.json
   def update
@@ -58,6 +50,7 @@ class EmailsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_email
       @email = Email.find(params[:id])
