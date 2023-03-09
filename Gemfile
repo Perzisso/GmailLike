@@ -75,3 +75,5 @@ group :test do
 end
 
 gem "faker", "~> 3.1"
+
+gem "htmlbeautifier", "~> 1.4"

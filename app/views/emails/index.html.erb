@@ -1,26 +1,19 @@
 <div class='container'>
-<%= button_to "Recevoir un email", { action: "create" }, class: "btn btn-primary" %>
-    <div id="email_new">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Object</th>
-            <th scope="col"></th>
-            <th colspan='2' scope="col">Body</th>
-          </tr>
-        </thead>
-        <tbody>
+  <%= button_to "Recevoir un email", { action: "create" }, class: "btn btn-primary" %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Number</th>
+        <th scope="col">Object</th>
+        <th scope="col">Body</th>
+      </tr>
+    </thead>
+    <tbody id="email_new" is="turbo-frame">
+      <turbo-frame>
         <% @emails.each do |email| %>
-          <tr>
-            <div>
-            <th scope="row"><%= email.id %></th>
-            <td><b><%= email.object %></b></td>
-            <th scope="row">Body</th>
-            <td><%= email.body %></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+          <%= render partial: "email", locals: {email: email} %>
+        <% end %>
+      </turbo-frame>
+    </tbody>
+  </table>
 </div>
