@@ -24,11 +24,11 @@ class EmailsController < ApplicationController
     @email = Email.create(object: Faker::Lorem.sentence, body: Faker::Lorem.paragraph)
 
     render turbo_stream: [
-      turbo_stream.prepend('mails',
+      turbo_stream.prepend('email_new',
                           partial: 'email',
                           locals: {email: @email})
       ]
-      
+
   end
 
 
