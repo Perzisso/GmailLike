@@ -4,8 +4,8 @@
     <thead>
       <tr>
         <th scope="col">Number</th>
-        <th scope="col">Object</th>
-        <th scope="col">Body</th>
+        <th scope="col">Mails</th>
+        <th scope="col">Seclected email</th>
       </tr>
     </thead>
     <tbody id="email_new" is="turbo-frame">
@@ -14,6 +14,8 @@
           <%= render partial: "email", locals: {email: email} %>
         <% end %>
       </turbo-frame>
+      <turbo-stream id="render_email">
+      </turbo-stream>
     </tbody>
   </table>
 </div>

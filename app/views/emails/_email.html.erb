@@ -1,5 +1,5 @@
   <tr>
     <th scope="row"><%= email.id %></th>
-    <td><strong><%= email.object %></strong></td>
-    <td><%= email.body %></td>
-  </th>
+    <td class="table-light"><strong><%= email.object %></strong> / <%= email.body %></td>
+    <td><%= link_to "Voir email", email_path(email.id) %></td>
+  </tr>

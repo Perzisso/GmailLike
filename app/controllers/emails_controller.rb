@@ -8,6 +8,7 @@ class EmailsController < ApplicationController
 
   # GET /emails/1 or /emails/1.json
   def show
+    #@email=Email.find(params:[id])
   end
 
   # GET /emails/new
@@ -28,7 +29,6 @@ class EmailsController < ApplicationController
                           partial: 'email',
                           locals: {email: @email})
       ]
-
   end
 
 
