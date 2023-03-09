@@ -3,7 +3,7 @@ class EmailsController < ApplicationController
 
   # GET /emails or /emails.json
   def index
-    @emails = Email.all
+    @emails = Email.order(created_at: :desc)
   end
 
   # GET /emails/1 or /emails/1.json
