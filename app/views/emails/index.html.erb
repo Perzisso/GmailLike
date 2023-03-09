@@ -1,31 +1,26 @@
-
-
 <div class='container'>
-<%= turbo_frame_tag "email" do  %>
-<%= button_to "Recevoir un email", { action: "create" }, data: { turbo_action: "advance" }, class: "btn btn-primary" %>
-
-  <div id="mails">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col"></th>
-          <th scope="col">Object</th>
-          <th scope="col"></th>
-          <th colspan='2' scope="col">Body</th>
-        </tr>
-      </thead>
-      <tbody>
-      <% @emails.each do |email| %>
-        <tr>
-          <div>
-          <th scope="row"><%= email.id %></th>
-          <td><b><%= email.object %></b></td>
-          <th scope="row">Body</th>
-          <td><%= email.body %></td>
-          <% end %>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<%= button_to "Recevoir un email", { action: "create" }, class: "btn btn-primary" %>
+    <div id="mails">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Object</th>
+            <th scope="col"></th>
+            <th colspan='2' scope="col">Body</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @emails.each do |email| %>
+          <tr>
+            <div>
+            <th scope="row"><%= email.id %></th>
+            <td><b><%= email.object %></b></td>
+            <th scope="row">Body</th>
+            <td><%= email.body %></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 </div>
-<% end %>

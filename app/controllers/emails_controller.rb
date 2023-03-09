@@ -23,6 +23,12 @@ class EmailsController < ApplicationController
   def create
     @email = Email.create(object: Faker::Lorem.sentence, body: Faker::Lorem.paragraph)
 
+    render turbo_stream: [
+      turbo_stream.prepend('mails',
+                          partial: 'email',
+                          locals: {email: @email})
+      ]
+      
   end
 
 
@@ -41,6 +47,7 @@ class EmailsController < ApplicationController
 
   # DELETE /emails/1 or /emails/1.json
   def destroy
+
     @email.destroy
 
     respond_to do |format|
