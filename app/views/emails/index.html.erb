@@ -9,11 +9,9 @@
       </tr>
     </thead>
     <tbody id="email_new" is="turbo-frame">
-      <turbo-frame>
-        <% @emails.each do |email| %>
-          <%= render partial: "email", locals: {email: email} %>
-        <% end %>
-      </turbo-frame>
+      <% @emails.each do |email| %>
+        <%= render partial: "email", locals: {email: email} %>
+      <% end %>
       <turbo-stream id="render_email">
       </turbo-stream>
     </tbody>
