@@ -1,9 +1,8 @@
-<p style="color: green"><%= notice %></p>
-<%= render @email %>
-
-<div>
-  <%= link_to "Edit this email", edit_email_path(@email) %> |
-  <%= link_to "Back to emails", emails_path %>
-
-  <%= button_to "Destroy this email", @email, method: :delete %>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+  <%= render @email %>
+  <div>
+    <%= link_to "Back to emails", root_path %>
+    <%= button_to "Destroy this email", @email, method: :delete, data: {turbo_frame: "_top"}, class:"btn btn-danger" %>
+  </div>
 </div>

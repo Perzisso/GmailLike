@@ -34,15 +34,6 @@ class EmailsController < ApplicationController
 
   # PATCH/PUT /emails/1 or /emails/1.json
   def update
-    respond_to do |format|
-      if @email.update(email_params)
-        format.html { redirect_to email_url(@email), notice: "Email was successfully updated." }
-        format.json { render :show, status: :ok, location: @email }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @email.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /emails/1 or /emails/1.json
@@ -51,7 +42,7 @@ class EmailsController < ApplicationController
     @email.destroy
 
     respond_to do |format|
-      format.html { redirect_to emails_url, notice: "Email was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Email was successfully destroyed." }
       format.json { head :no_content }
     end
   end
